@@ -1,0 +1,22 @@
+<h2>All events</h2>
+
+<%if @events.empty? %>
+  <b> События не были созданы. </b>
+<% else %>
+  <table>
+    <th>id</th>
+    <th>title</th>
+    <th>date</th>
+    <th>type_repeat</th>
+    <th>delete?</th>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= event.title %></td>
+        <td><%= event.date %></td>
+        <td><%= event.type_repeat %></td>
+        <td><%= link_to "Удалить", event, method: :delete, data: {confirm: "Точно удалить?"} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

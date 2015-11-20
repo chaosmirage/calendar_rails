@@ -1,0 +1,38 @@
+<h2>Edit event</h2>
+
+<%-  @event.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<%- end %>
+
+<%= form_for @event do |f| %>
+    <p>
+      <label>
+        Title:
+        <%= f.text_field :title %>
+      </label>
+    </p>
+    <p>
+      <label>
+        Date:
+        <%= f.text_field :date %>
+      </label>
+    </p>
+    <p>
+      <label>
+        Type repeat:
+        <%= f.select(:type_repeat,
+          options_for_select(
+            [
+              ["Каждый день", "daily"],
+              ["Каждую неделю", "weekly"],
+              ["Каждый месяц", "monthly"],
+              ["Каждый год", "yearly"]
+            ], @event.type_repeat
+          )
+        ) %>
+      </label>
+    </p>
+    <p>
+      <%= f.submit "Сохранить изменения" %>
+    </p>
+<% end %>
