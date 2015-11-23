@@ -57,6 +57,6 @@ class EventsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:id])
-    render_404 unless @item
+    render_404 unless @event
   end
 end
