@@ -1,0 +1,11 @@
+%h2
+  Event: "#{@event.title}"
+:css
+  table{text-align: center;}
+%table
+  %tr
+    %th date
+    %th type_repeat
+  %tr
+    %td= @event.date
+    %td= @event.type_repeat
