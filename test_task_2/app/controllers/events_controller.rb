@@ -23,9 +23,7 @@ class EventsController < ApplicationController
 
   # экшены restful контроллера CRUD
   #=================================================================
-  def show
-    render text: "page not found", status: 404 unless @event
-  end
+  def show; end
 
   def create
     @event = Event.create(event_params)
@@ -59,5 +57,6 @@ class EventsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:id])
+    render_404 unless @item
   end
 end
