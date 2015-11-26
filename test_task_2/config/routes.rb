@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :events
+  root 'users#new'
 
-  get 'signup', to: 'users#new'
+  resources :events
+  resources :users
+
+
 
 end
