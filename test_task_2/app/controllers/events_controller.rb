@@ -52,7 +52,9 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :date, :type_repeat)
+    # TODO: проверить, работает ли, если да, удалить старый вариант
+    # params.require(:event).permit(:title, :date, :type_repeat)
+    params.require(:event).permit!
   end
 
   def find_event

@@ -13,6 +13,7 @@
   %p
     %label
       Type repeat:
+      -# TODO: исправить после конвертирования
       \#{f.select(:type_repeat, options_for_select( [ ["Каждый день", "daily"], ["Каждую неделю", "weekly"], ["Каждый месяц", "monthly"], ["Каждый год", "yearly"] ], "daily" ) )}
   %p
     = f.submit "Создать событие"

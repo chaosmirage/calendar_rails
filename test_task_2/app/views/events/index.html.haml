@@ -12,7 +12,7 @@
     - @events.each do |event|
       %tr
         %td= event.id
-        %td= link_to event.title, event_path(event)
+        %td= link_to event.title, event
         %td= event.date
         %td= event.type_repeat
         %td= link_to "Удалить", event, method: :delete, data: {confirm: "Точно удалить?"}
