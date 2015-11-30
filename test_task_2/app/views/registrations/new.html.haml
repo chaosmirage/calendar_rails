@@ -1,0 +1,8 @@
+%h2 Sign up
+
+= simple_form_for @user, url: registrations_path do |f|
+  = render partial: "partials/users/form", locals: {f: f}
+  = f.submit "Зарегистрироваться", class: "btn btn-primary"
+
+%p
+  = link_to "Войти", root_path

@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 6}
   has_many :events
   has_secure_password
+
 end

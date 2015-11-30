@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  include AuthHelper
+  before_action :authenticate_user!
+  before_action :redirect_if_signed
+  helper_method :current_user, :signed_in?
+
   private
 
   def render_403
