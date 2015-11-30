@@ -16,3 +16,6 @@
         %td= event.date
         %td= event.type_repeat
         %td= link_to "Удалить", event, method: :delete, data: {confirm: "Точно удалить?"}
+
+%p
+  = link_to "Создать", new_event_path, class: "btn btn-primary"
