@@ -1,28 +1,17 @@
 class EventsController < ApplicationController
-  public
-
-  # фильтры
-  #=================================================================
   before_filter :find_event, only: [:show, :edit, :update, :destroy]
 
-
-  # формы
-  #=================================================================
-  # вывод всех событий
   def index
     @events = Event.all
   end
 
-  # форма создания события -> create
   def new
     @event = Event.new
   end
 
-  # форма редактирования события -> update
   def edit; end
 
-  # экшены restful контроллера CRUD
-  #=================================================================
+
   def show; end
 
   def create

@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   include AuthHelper
   before_action :authenticate_user!
-  before_action :redirect_if_signed
   helper_method :current_user, :signed_in?
 
   private
