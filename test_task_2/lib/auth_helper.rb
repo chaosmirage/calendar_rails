@@ -12,7 +12,7 @@ module AuthHelper
   end
 
   def redirect_if_signed
-    redirect_to user_path(current_user) if signed_in?
+    redirect_to events_path if signed_in?
   end
 
   def authenticate_user!

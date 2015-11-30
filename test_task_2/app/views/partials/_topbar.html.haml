@@ -1,5 +1,10 @@
 %nav.navbar.navbar-inverse.navbar-static-top
   .container-fluid
+    .navbar-header
+
+    = link_to "Calendar", dashboard_path, class: "navbar-brand"
     .nav.navbar-nav.navbar-right
+      %li
+        = link_to "Настройки", settings_path
       %li
         = link_to "Выйти", session_path, method: :delete
