@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # TODO: delete some resources
 
   root 'sessions#new'
 
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :registrations, only: [:new, :create]
+  resources :users, only: [:edit, :update]
   resources :events
-  resources :users
 
 end

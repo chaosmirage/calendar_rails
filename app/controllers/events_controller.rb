@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
-  before_filter :find_event, only: [:show, :edit, :update, :destroy]
-  before_filter :find_user, only: [:index, :create, :show, :edit, :update, :destroy]
+  before_action :find_event, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [
+    :index, :create, :show, :edit, :update, :destroy
+  ]
 
   layout "dashboard"
 
@@ -37,22 +39,21 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+
     redirect_to action: "index"
   end
 
   private
 
   def event_params
-    # TODO: проверить, работает ли, если да, удалить старый вариант
-    # params.require(:event).permit(:title, :date, :type_repeat)
     params.require(:event).permit!
   end
 
   def find_event
-    # @event = Event.find(params[:id])
-    # render_404 unless @event
     @user = find_user
     @event = @user.events.find(params[:id])
+
+    render_404 unless @event
   end
 
   def find_user

@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include AuthHelper
-  before_action :authenticate_user!
   helper_method :current_user, :signed_in?
+
+  before_action :authenticate_user!
 
   private
 

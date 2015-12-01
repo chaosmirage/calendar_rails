@@ -1,19 +1,18 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user!, :redirect_if_signed
 
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by_email(params[:session][:email])
 
     if user && user.authenticate(params[:session][:password])
-      flash[:success] = 'Success!'
+      flash[:success] = "Success!"
       sign_in user
       redirect_to dashboard_path
     else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      flash.now[:danger] = "Invalid email/password combination"
+      render "new"
     end
   end
 
