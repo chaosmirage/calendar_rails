@@ -1,21 +1,21 @@
 %h2 All events
 
 - if @events.empty?
-  %b События не были созданы.
+  %p События не были созданы.
 - else
-  %table
-    %th id
-    %th title
+  %table.table
     %th date
+    %th title
     %th type_repeat
     %th delete?
     - @events.each do |event|
       %tr
-        %td= event.id
-        %td= link_to event.title, event
         %td= event.date
+        %td= link_to event.title, event
         %td= event.type_repeat
-        %td= link_to "Удалить", event, method: :delete, data: {confirm: "Точно удалить?"}
+        %td= link_to "Удалить",
+                      event, method: :delete,
+                      data: {confirm: "Точно удалить?"}
 
-%p
+.text-center
   = link_to "Создать", new_event_path, class: "btn btn-primary"

@@ -3,11 +3,12 @@ class EventsController < ApplicationController
   before_action :find_user, only: [
     :index, :create, :show, :edit, :update, :destroy
   ]
+  before_action :type_repeat, only: [:new, :edit]
 
   layout "dashboard"
 
   def index
-    @events = @user.events.all
+    @events = @user.events.order("date DESC").all
   end
 
   def new
@@ -22,7 +23,8 @@ class EventsController < ApplicationController
     @user.events << Event.create(event_params)
 
     if @user.events.last.errors.empty?
-      redirect_to event_path(@user.events.last)
+      # redirect_to event_path(@user.events.last)
+      redirect_to events_path
     else
       render "new"
     end
@@ -31,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @event.update_attributes(event_params)
     if @event.errors.empty?
-      redirect_to event_path(@event)
+    redirect_to event_path(@event)
     else
       render "edit"
     end
@@ -44,6 +46,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def type_repeat
+    @type_repeat = {day: "daily", week: "weekly", month: "monthly", year: "yearly"}
+  end
 
   def event_params
     params.require(:event).permit!

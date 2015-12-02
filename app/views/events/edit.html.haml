@@ -1,18 +1,9 @@
 %h2 Edit event
-- @event.errors.full_messages.each do |msg|
-  %li= msg
-= form_for @event do |f|
-  %p
-    %label
-      Title:
-      \#{f.text_field :title}
-  %p
-    %label
-      Date:
-      \#{f.text_field :date}
-  %p
-    %label
-      Type repeat:
-      \#{f.select(:type_repeat, options_for_select( [ ["Каждый день", "daily"], ["Каждую неделю", "weekly"], ["Каждый месяц", "monthly"], ["Каждый год", "yearly"] ], @event.type_repeat ) )}
-  %p
-    = f.submit "Сохранить изменения"
+
+= simple_form_for @event do |f|
+  = f.input :title
+  = f.input :date
+  = f.input :type_repeat, collection: @type_repeat, selected: @event.type_repeat
+
+  .text-center
+    = f.submit "Сохранить изменения", class: "btn btn-success"
