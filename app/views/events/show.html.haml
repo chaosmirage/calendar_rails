@@ -3,20 +3,15 @@
     = @event.title
   %ul.list-group
     %li.list-group-item
-      %h5.list-group-item-heading
-        Date
+      %b.list-group-item-heading
+        = "#{t("event.date")}:"
       %p.list-group-item-text
         = @event.date
     %li.list-group-item
-      %h5.list-group-item-heading
-        Type_repeat
+      %b.list-group-item-heading
+        = "#{t("event.type_repeat")}:"
       %p.list-group-item-text
         = @event.type_repeat
 
 .text-center
   = link_to "Редактировать", edit_event_path(@event), class: "btn btn-primary"
-  = link_to "Удалить",
-            @event,
-            method: :delete,
-            data: {confirm: "Точно удалить?"},
-            class: "btn btn-danger"
