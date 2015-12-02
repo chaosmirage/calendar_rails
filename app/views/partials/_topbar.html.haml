@@ -4,6 +4,8 @@
 
     = link_to "Calendar", dashboard_path, class: "navbar-brand"
     .nav.navbar-nav.navbar-right
+      %li.navbar-text
+        = @user.email
       %li
         = link_to "Настройки", settings_path
       %li
