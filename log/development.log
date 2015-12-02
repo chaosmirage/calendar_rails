@@ -31199,3 +31199,5 @@ Processing by EventsController#index as HTML
   Rendered events/index.html.haml within layouts/dashboard (7.6ms)
   Rendered partials/_topbar.html.haml (0.6ms)
 Completed 200 OK in 361ms (Views: 347.2ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users"

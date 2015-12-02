@@ -9,12 +9,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes(
-      name: params[:user][:name],
-      last_name: params[:user][:last_name],
-      password: params[:user][:password],
-      password: params[:user][:password_confirmation]
-    )
+    @user.update_attributes(user_params)
 
     if @user.errors.empty?
       flash[:success] = "Saved!"
@@ -34,8 +29,6 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    # @user = User.where(id: params[:id]).first
-
     @user = current_user
   end
 end
