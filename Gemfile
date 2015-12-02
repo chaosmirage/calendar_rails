@@ -35,6 +35,8 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

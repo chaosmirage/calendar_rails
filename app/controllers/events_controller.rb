@@ -48,7 +48,12 @@ class EventsController < ApplicationController
   private
 
   def type_repeat
-    @type_repeat = {day: "daily", week: "weekly", month: "monthly", year: "yearly"}
+    @type_repeat = {
+      daily: "daily",
+      weekly: "weekly",
+      monthly: "monthly",
+      yearly: "yearly"
+    }
   end
 
   def event_params

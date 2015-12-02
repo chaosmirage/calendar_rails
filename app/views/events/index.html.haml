@@ -10,6 +10,7 @@
     %th delete?
     - @events.each do |event|
       %tr
+        -# %td= event.date.strftime("%d.%m.%Y")
         %td= event.date
         %td= link_to event.title, event
         %td= event.type_repeat
