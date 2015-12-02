@@ -17,10 +17,8 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
-//= require_tree .
+//= require events
 
 $(document).ready(function(){
-  $('.datetimepicker').datetimepicker({
-
-  });
+  $('.datetimepicker').datetimepicker();
 });

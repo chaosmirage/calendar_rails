@@ -3,20 +3,19 @@
 - if @events.empty?
   %p События не были созданы.
 - else
-  %table.table
+  %table.table.table-vertical-center
     %th date
     %th title
     %th type_repeat
-    %th delete?
+    %th action
     - @events.each do |event|
-      %tr
-        -# %td= event.date.strftime("%d.%m.%Y")
+      %tr{data_event_id: event.id}
         %td= event.date
         %td= link_to event.title, event
         %td= event.type_repeat
-        %td= link_to "Удалить",
-                      event, method: :delete,
-                      data: {confirm: "Точно удалить?"}
+        %td
+          %button.btn.btn-default.js-event-delete
+            %span.glyphicon.glyphicon-trash
 
 .text-center
   = link_to "Создать", new_event_path, class: "btn btn-primary"

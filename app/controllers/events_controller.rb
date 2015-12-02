@@ -23,7 +23,6 @@ class EventsController < ApplicationController
     @user.events << Event.create(event_params)
 
     if @user.events.last.errors.empty?
-      # redirect_to event_path(@user.events.last)
       redirect_to events_path
     else
       render "new"
@@ -41,8 +40,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-
-    redirect_to action: "index"
+    render json: {success: true}
   end
 
   private
