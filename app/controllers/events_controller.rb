@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
   before_action :find_user, only: [
-    :index, :create, :show, :edit, :update, :destroy
+    :index, :create, :new, :show, :edit, :update, :destroy
   ]
   before_action :type_repeat, only: [:new, :edit]
 
